@@ -1,0 +1,14 @@
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a
+.ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body
+.ui-group-theme-a .ui-bar-inherit {
+  /*background-color: rgb(255,125,9);
+  border-color: transparent;*/
+
+  background: #f79d00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #f79d00 , #64f38c); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #f79d00 , #64f38c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: rgba(221,221,221,1);
+  text-shadow: none;
+  font-weight: 700;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jqmkassoua</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+  <script>
+  $(function () {
+    //$("[data-role=header],[data-role=footer]").toolbar().enhanceWithin();
+    $("[data-role=panel]").panel().enhanceWithin();
+  });
+
+  $(document).on("pagecreate", function () {
+    $("[data-role=panel]").one("panelbeforeopen", function () {
+      var height = $.mobile.pageContainer.pagecontainer("getActivePage").outerHeight();
+      $(".ui-panel-wrapper").css("height", height + 1);
+    });
+  });
+</script>
+</html>

@@ -1,0 +1,38 @@
+
+
+  <div class="ui-content">
+    <%= form_for(announce, html: { multipart: true, 'data-ajax': false }) do |f| %>
+  <% if announce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(announce.errors.count, "error") %> prohibited this announce from being saved:</h2>
+
+      <ul>
+      <% announce.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nom %>
+    <%= f.text_field :nom %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prix %>
+    <%= f.number_field :prix %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+  </div>
+
