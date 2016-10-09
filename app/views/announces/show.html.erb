@@ -1,7 +1,7 @@
 <div class="ui-content">
   <p id="notice"><%= notice %></p>
 
-  <%= image_tag @announce.image_url, size: "200x200" if @announce.image? %>
+  <%= image_tag @announce.image_url if @announce.image? %>
   <p>
     <strong>Nom:</strong>
     <%= @announce.nom %>

@@ -14,6 +14,7 @@ gem 'jquery_mobile_rails',        '1.4.5'
 gem 'carrierwave',github:'carrierwaveuploader/carrierwave'
 gem "fog-aws",                    '0.12.0'
 gem "figaro",                     '1.1.1'
+gem "mini_magick",                '4.5.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
