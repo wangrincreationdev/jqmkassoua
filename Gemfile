@@ -11,6 +11,9 @@ gem 'jquery-rails',               '4.2.1'
 gem 'jquery-turbolinks',          '2.1.0'
 gem 'jbuilder',                   '2.6.0'
 gem 'jquery_mobile_rails',        '1.4.5'
+gem 'carrierwave',github:'carrierwaveuploader/carrierwave'
+gem "fog-aws",                    '0.12.0'
+gem "figaro",                     '1.1.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'

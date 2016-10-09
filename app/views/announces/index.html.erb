@@ -1,38 +1,29 @@
 
-
-
-
 <div class="ui-content">
 
   <p id="notice"><%= notice %></p>
   <h1>Announces</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Description</th>
-        <th>Prix</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @announces.each do |announce| %>
-        <tr>
-          <td><%= announce.nom %></td>
-          <td><%= announce.description %></td>
-          <td><%= announce.prix %></td>
-          <td><%= link_to 'Afficher', announce %></td>
-          <td><%= link_to 'Modifier', edit_announce_path(announce) %></td>
-          <td><%= link_to 'Supprimer', announce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <ul data-role="listview">
+      <ul data-role="listview" data-inset="true" data-theme="a">
+        <% @announces.each do |announce| %>
+          <li data-icon="false">
+            <%= link_to(announce) do %>
+              <h2><%= announce.nom %></h2>
+              <p><%= announce.prix %></p>
+              <p><%= announce.description %></p>
+            <% end %>
+          </li>
+
+        <% end %>
+      </ul>
+      <br />
+      <%= link_to 'Nouvelle annonce', new_announce_path %>
+  </ul>
 
   <br>
 
-  <%= link_to 'Nouvelle Announce', new_announce_path %>
+
 
 </div>
 

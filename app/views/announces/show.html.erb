@@ -1,22 +1,28 @@
 <div class="ui-content">
   <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @announce.nom %>
-</p>
+  <%= image_tag @announce.image_url, size: "200x200" if @announce.image? %>
+  <p>
+    <strong>Nom:</strong>
+    <%= @announce.nom %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @announce.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @announce.description %>
+  </p>
 
-<p>
-  <strong>Prix:</strong>
-  <%= @announce.prix %>
-</p>
+  <p>
+    <strong>Prix:</strong>
+    <%= @announce.prix %>
+  </p>
 
-<%= link_to 'Edit', edit_announce_path(@announce) %> |
-<%= link_to 'Back', announces_path %>
+  <%= link_to 'Afficher announce', @announce %>
+  <%= link_to 'Modifier announce', edit_announce_path(@announce) %>
+  <%= link_to 'Supprimer announce', @announce, method: :delete, data: { confirm: 'Est-vous sure?' } %>
+
+
+  <%= link_to 'Edit', edit_announce_path(@announce) %> |
+  <%= link_to 'Back', announces_path %>
 </div>
 
