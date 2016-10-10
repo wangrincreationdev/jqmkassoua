@@ -1,29 +1,33 @@
 
+
+
+
+
 <div class="ui-content">
-
-  <p id="notice"><%= notice %></p>
-  <h1>Announces</h1>
-
-  <ul data-role="listview">
-      <ul data-role="listview" data-inset="true" data-theme="a">
+  <div class="center">
+    <ul data-role="listview">
         <% @announces.each do |announce| %>
           <li data-icon="false">
             <%= link_to(announce) do %>
-              <h2><%= announce.nom %></h2>
-              <p><%= announce.prix %></p>
-              <p><%= announce.description %></p>
+              <div class="ui-grid-b">
+                <div class="ui-block-a">
+                  <%= image_tag announce.image.url() %>
+                </div>
+                <div class="ui-block-b">
+
+                </div>
+                <div class="ui-block-c">
+                  <h4><%= announce.nom %></h4>
+                  <p><%= number_to_currency(announce.prix) %></p>
+                </div>
+              </div>
             <% end %>
           </li>
-
         <% end %>
       </ul>
+  </div>
       <br />
-      <%= link_to 'Nouvelle annonce', new_announce_path %>
-  </ul>
-
-  <br>
-
-
+      <%= link_to 'Ajouter annonce', new_announce_path %>
 
 </div>
 

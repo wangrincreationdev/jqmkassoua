@@ -3,26 +3,20 @@
 
   <%= image_tag @announce.image_url if @announce.image? %>
   <p>
-    <strong>Nom:</strong>
-    <%= @announce.nom %>
+    <h3><%= @announce.nom %></h3>
   </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @announce.description %>
-  </p>
-
-  <p>
-    <strong>Prix:</strong>
+    <p>
     <%= @announce.prix %>
   </p>
 
-  <%= link_to 'Afficher announce', @announce %>
-  <%= link_to 'Modifier announce', edit_announce_path(@announce) %>
-  <%= link_to 'Supprimer announce', @announce, method: :delete, data: { confirm: 'Est-vous sure?' } %>
+  <p>
+    <%= @announce.description %>
+  </p>
 
+  <%= link_to 'Modifier', edit_announce_path(@announce) %> |
+  <%= link_to 'Supprimer', @announce, method: :delete, data: { confirm: 'Est-vous sure?' } %> |
 
-  <%= link_to 'Edit', edit_announce_path(@announce) %> |
   <%= link_to 'Back', announces_path %>
 </div>
 
