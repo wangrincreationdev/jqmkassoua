@@ -1,22 +1,33 @@
 <div id="mainNav" data-role="panel" data-position="left" data-display="reveal" data-theme="b">
-            <ul data-role="listview" data-inset="true" data-theme="a">
-               <li data-role="list-divider">Pages</li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#order">Order</a></li>
-            </ul>
+    <ul data-role="listview" data-inset="true" data-theme="a">
+        <% if user_signed_in? %>
+            <li data-role="list-divider">Pages</li>
+            <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
 
-            <ul data-role="listview" data-inset="true" data-theme="a">
-                <li data-role="list-divider">Folders</li>
-                <li data-icon="mail"><a href="#inbox">Inbox <span class="ui-li-count">35</span></a></li>
-                <li data-icon="check"><a href="#search">Search</a></li>
-                <li data-icon="edit"><a href="#drafts">Drafts</a></li>
-                <li data-icon="forbidden"><a href="#spam">Spam</a></li>
-            </ul>
-        </div>
-    <div id="index" data-role="page">
+    </ul>
+    <ul data-role="listview" data-inset="true" data-theme="a">
+        <li data-role="list-divider">Folders</li>
+        <li data-icon="mail"><a href="#inbox">Inbox <span class="ui-li-count">35</span></a></li>
+        <li data-icon="check"><a href="#search">Search</a></li>
+        <li data-icon="edit"><a href="#drafts">Drafts</a></li>
+        <li data-icon="forbidden"><a href="#spam">Spam</a></li>
+    </ul>
+</div>
 
-  <div data-role="header">
+
+<div data-role="header">
+  <h1>KassouaNet</h1>
     <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-notext">Menu</a>
-    <h1>KassouaNet</h1>
-  </div>
+    <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "ui-btn-right", 'data-icon': 'delete' %>
+    <% else %>
+        <%= link_to 'Sign In', new_user_session_path, class: "ui-btn-right", 'data-icon': 'user' %>
+    <% end %>
+
+</div>
+

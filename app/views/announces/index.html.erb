@@ -9,14 +9,12 @@
         <% @announces.each do |announce| %>
           <li data-icon="false">
             <%= link_to(announce) do %>
-              <div class="ui-grid-b">
+              <div class="ui-grid-a">
                 <div class="ui-block-a">
-                  <%= image_tag announce.image.url() %>
+                  <%= image_tag announce.image.url(), size: 120 %>
                 </div>
-                <div class="ui-block-b">
 
-                </div>
-                <div class="ui-block-c">
+                <div class="ui-block-b">
                   <h4><%= announce.nom %></h4>
                   <p><%= number_to_currency(announce.prix) %></p>
                 </div>
@@ -27,7 +25,7 @@
       </ul>
   </div>
       <br />
-      <%= link_to 'Ajouter annonce', new_announce_path %>
+      <%= link_to 'Ajouter annonce', new_announce_path, class: 'ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right' %>
 
 </div>
 

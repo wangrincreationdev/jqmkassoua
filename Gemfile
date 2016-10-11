@@ -15,6 +15,7 @@ gem 'carrierwave',github:'carrierwaveuploader/carrierwave'
 gem "fog-aws",                    '0.12.0'
 gem "figaro",                     '1.1.1'
 gem "mini_magick",                '4.5.1'
+gem 'devise',                     '4.2.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'

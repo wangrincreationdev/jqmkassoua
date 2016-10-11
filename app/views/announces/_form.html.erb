@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, rows: 20 %>
   </div>
 
   <div class="field">
@@ -31,7 +31,7 @@
 
   <div class="field">
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
   </div>
 
   <div class="actions">
@@ -40,4 +40,13 @@
 <% end %>
 
   </div>
+
+  <script type="text/javascript">
+    $('#announce_image').bind('change', function() {
+      size_in_megabytes = this.files[0].size/1024/1024;
+      if(size_in_megabytes > 5) {
+        alert('maximum taille du fichier est de 5MB. Choisir un fichier plus petit');
+      }
+    });
+  </script>
 

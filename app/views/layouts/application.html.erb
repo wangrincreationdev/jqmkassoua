@@ -11,6 +11,10 @@
 
   <body>
     <%= render 'layouts/header' %>
+       <div class="ui-content">
+         <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+       </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
