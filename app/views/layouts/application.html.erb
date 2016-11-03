@@ -7,13 +7,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
        <div class="ui-content">
-         <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
+         <% flash.each do |name, msg| %>
+          <% if msg.is_a?(String) %>
+            <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            </div>
+          <% end %>
+         <% end %>
        </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
