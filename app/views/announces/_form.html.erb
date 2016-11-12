@@ -3,8 +3,9 @@
   <div class="ui-content">
     <%= form_for(announce, html: { multipart: true, 'data-ajax': false }) do |f| %>
   <% if announce.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(announce.errors.count, "error") %> prohibited this announce from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4><%= pluralize(announce.errors.count, "error") %> prohibited this announce from being saved:</h4>
 
       <ul>
       <% announce.errors.full_messages.each do |message| %>
