@@ -7,12 +7,13 @@
             <%= link_to(announce) do %>
               <div class="ui-grid-a">
                 <div class="ui-block-a">
-                  <%= image_tag(announce.image.url, size: 140) if announce.image? %>
+                  <%= image_tag(announce.image.url, size: 120) if announce.image? %>
                 </div>
 
                 <div class="ui-block-b">
                   <h4><%= announce.nom %></h4>
                   <p><%= number_to_currency(announce.prix) %></p>
+                  <p><%= "Publie par #{announce.user.nom}" %></p>
                 </div>
               </div>
             <% end %>

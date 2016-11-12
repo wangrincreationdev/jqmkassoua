@@ -5,6 +5,8 @@ class Announce < ApplicationRecord
   validates :prix, numericality: { greater_than: 0 }
   validates :image, presence: true
 
+  belongs_to :user
+
   private
     def image_size
       if image.size > 5.megabytes

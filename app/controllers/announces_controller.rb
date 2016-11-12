@@ -25,6 +25,7 @@ class AnnouncesController < ApplicationController
   # POST /announces.json
   def create
     @announce = Announce.new(announce_params)
+    @announce.user_id = current_user.id
 
     respond_to do |format|
       if @announce.save
