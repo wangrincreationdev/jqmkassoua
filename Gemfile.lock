@@ -107,6 +107,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     jquery_mobile_rails (1.4.5)
       railties (>= 3.1.0)
     listen (3.1.5)
@@ -223,6 +225,7 @@ DEPENDENCIES
   jbuilder (= 2.6.0)
   jquery-rails (= 4.2.1)
   jquery-turbolinks (= 2.1.0)
+  jquery-ui-rails (= 5.0.5)
   jquery_mobile_rails (= 1.4.5)
   listen (= 3.1.5)
   mini_magick (= 4.5.1)

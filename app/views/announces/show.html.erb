@@ -1,5 +1,4 @@
 <div class="ui-content">
-  <p id="notice"><%= notice %></p>
 
   <%= image_tag @announce.image_url if @announce.image? %>
   <p>
@@ -14,8 +13,10 @@
     <%= @announce.description %>
   </p>
 
-  <%= link_to 'Modifier', edit_announce_path(@announce) %> |
-  <%= link_to 'Supprimer', @announce, method: :delete, data: { confirm: 'Est-vous sure?' } %> |
+  <% if (user_signed_in?) && (current_user == @announce.user) %>
+    <%= link_to 'Modifier', edit_announce_path, 'data-ajax': false %> |
+    <%= link_to 'Supprimer', @announce, method: :delete, data: { confirm: 'Est-vous sure?', 'data-ajax': false } %> |
+  <% end %>
 
   <%= link_to 'Retour', announces_path %>
 </div>

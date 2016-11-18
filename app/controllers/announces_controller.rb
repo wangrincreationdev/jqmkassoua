@@ -1,5 +1,7 @@
 class AnnouncesController < ApplicationController
   before_action :set_announce, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /announces
   # GET /announces.json
@@ -71,5 +73,11 @@ class AnnouncesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def announce_params
       params.require(:announce).permit(:nom, :description, :prix, :image)
+    end
+
+    def check_user
+      if current_user != @announce.user
+        redirect_to root_url, alert: "Desole, vous etes pas le proprietaire de cette annonce"
+      end
     end
 end

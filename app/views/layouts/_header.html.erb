@@ -24,9 +24,9 @@
   <h1>KassouaNet</h1>
     <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-notext">Menu</a>
     <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "ui-btn-right", 'data-icon': 'delete' %>
+        <%= link_to 'Sortir', destroy_user_session_path, method: :delete, class: "ui-btn-right", 'data-icon': 'delete', 'data-ajax': false %>
     <% else %>
-        <%= link_to 'Sign In', new_user_session_path, class: "ui-btn-right", 'data-icon': 'user' %>
+        <%= link_to 'Entrer', new_user_session_path, class: "ui-btn-right", 'data-icon': 'user' %>
     <% end %>
 
 </div>

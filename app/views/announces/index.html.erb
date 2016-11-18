@@ -22,7 +22,9 @@
       </ul>
   </div>
       <br />
-      <%= link_to 'Ajouter annonce', new_announce_path, class: 'ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right' %>
+      <% if user_signed_in? %>
+        <%= link_to 'Ajouter annonce', new_announce_path, class: 'ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right', 'data-ajax': false %>
+      <% end %>
 
 </div>
 
