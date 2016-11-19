@@ -1,12 +1,16 @@
 class AnnouncesController < ApplicationController
   before_action :set_announce, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
+
+  def seller
+    @announces = Announce.where(user: current_user).order("created_at DESC")
+  end
 
   # GET /announces
   # GET /announces.json
   def index
-    @announces = Announce.all
+    @announces = Announce.all.order("created_at DESC")
   end
 
   # GET /announces/1

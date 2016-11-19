@@ -1,7 +1,7 @@
 <div id="mainNav" data-role="panel" data-position="left" data-display="reveal" data-theme="b">
     <ul data-role="listview" data-inset="true" data-theme="a">
         <% if user_signed_in? %>
-            <li data-role="list-divider">Pages</li>
+            <li data-role="list-divider">Enregistrement</li>
             <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
@@ -11,7 +11,8 @@
 
     </ul>
     <ul data-role="listview" data-inset="true" data-theme="a">
-        <li data-role="list-divider">Folders</li>
+        <li data-role="list-divider">Gestion</li>
+        <li data-icon="action"><%= link_to 'Gerer Announces', seller_path %></li>
         <li data-icon="mail"><a href="#inbox">Inbox <span class="ui-li-count">35</span></a></li>
         <li data-icon="check"><a href="#search">Search</a></li>
         <li data-icon="edit"><a href="#drafts">Drafts</a></li>
