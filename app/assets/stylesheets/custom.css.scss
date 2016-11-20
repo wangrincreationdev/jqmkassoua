@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body {
+  background-color: #f5f5f1;
+}
+
 .ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a
 .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body
 .ui-group-theme-a .ui-bar-inherit {
@@ -16,8 +20,15 @@
   font-family: guardian-egypt, georgia, serif;
 }
 
-
-
 .ui-block-a {
   width: 100px;
 }
+
+.jumbotron {
+  background-image: url('banner2.jpg');
+  h1,h2 {
+    font-family: guardian-egyptt, georgia, serif;
+  }
+}
+
+

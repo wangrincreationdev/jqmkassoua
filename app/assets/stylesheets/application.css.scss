@@ -5,8 +5,14 @@
  *= require jquery-ui
 */
 
+body {
+  background-color: black;
+}
+
+
 @import 'normalize.css.scss';
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'announces.css.scss';
 @import 'custom.css.scss';
+
