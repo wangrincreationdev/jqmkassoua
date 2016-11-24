@@ -20,6 +20,11 @@
     <%= f.text_field :nom, placeholder: "Entrez le nom du produit ou service", class: "form-control" %>
   </div>
 
+  <div class="field form-group">
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :nom, {prompt: "Choisir une categorie"}, 'data-native-menu': false %>
+  </div>
+
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description, rows: 20, placeholder: "Decrivez le produit ou le service " %>

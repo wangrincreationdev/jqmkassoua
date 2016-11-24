@@ -6,6 +6,7 @@ class Announce < ApplicationRecord
   validates :image, presence: true
 
   belongs_to :user
+  belongs_to :category
 
   private
     def image_size

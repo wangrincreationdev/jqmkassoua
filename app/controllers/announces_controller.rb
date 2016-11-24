@@ -1,4 +1,5 @@
 class AnnouncesController < ApplicationController
+  protect_from_forgery
   before_action :set_announce, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
@@ -76,7 +77,7 @@ class AnnouncesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def announce_params
-      params.require(:announce).permit(:nom, :description, :prix, :image)
+      params.require(:announce).permit(:nom, :category_id, :description, :prix, :image)
     end
 
     def check_user
