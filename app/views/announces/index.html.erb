@@ -6,6 +6,18 @@
   </div> -->
 
   <div class="center">
+
+
+     <a href="#popupMenu" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-right">Choisir la categorie</a>
+      <div data-role="popup" id="popupMenu" data-theme="b">
+              <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                  <!-- <li data-role="list-divider">Choisir la Categorie</li> -->
+                    <% Category.all.each do |category| %>
+                      <li><%= link_to category.nom, announces_path(category: category.nom), 'data-ajax': false %></li>
+                    <% end %>
+              </ul>
+      </div>
+
     <ul data-role="listview">
         <% @announces.each do |announce| %>
           <li data-icon="false">
@@ -27,8 +39,10 @@
       </ul>
   </div>
       <br />
+
+
       <% if user_signed_in? %>
-        <%= link_to 'Ajouter annonce', new_announce_path, class: 'ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right', 'data-ajax': false %>
+        <%= link_to 'Ajouter annonce', new_announce_path, class: 'ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-right', 'data-ajax': false %>
       <% end %>
 
 </div>

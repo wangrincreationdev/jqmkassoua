@@ -11,7 +11,12 @@ class AnnouncesController < ApplicationController
   # GET /announces
   # GET /announces.json
   def index
-    @announces = Announce.all.order("created_at DESC")
+    if params[:category].blank?
+      @announces = Announce.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(nom: params[:category]).id
+      @announces = Announce.where(category_id: @category_id)
+    end
   end
 
   # GET /announces/1
