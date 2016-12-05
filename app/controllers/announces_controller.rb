@@ -12,10 +12,10 @@ class AnnouncesController < ApplicationController
   # GET /announces.json
   def index
     if params[:category].blank?
-      @announces = Announce.all.order("created_at DESC")
+      @announces = Announce.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
     else
       @category_id = Category.find_by(nom: params[:category]).id
-      @announces = Announce.where(category_id: @category_id)
+      @announces = Announce.where(category_id: @category_id).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
     end
   end
 

@@ -7,15 +7,15 @@
 
   <div class="center">
 
+      <div data-role="collapsible" data-theme="b" data-content-theme="b">
+      <h2>Choisir une categorie</h2>
+          <ul data-role="listview" data-filter="true">
+              <li><%= link_to 'Toutes les categories', announces_path %></li>
+              <% Category.all.each do |category| %>
+                  <li><%= link_to category.nom, announces_path(category: category.nom), 'data-ajax': false %></li>
+              <% end %>
 
-     <a href="#popupMenu" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-right">Choisir la categorie</a>
-      <div data-role="popup" id="popupMenu" data-theme="b">
-              <ul data-role="listview" data-inset="true" style="min-width:210px;">
-                  <!-- <li data-role="list-divider">Choisir la Categorie</li> -->
-                    <% Category.all.each do |category| %>
-                      <li><%= link_to category.nom, announces_path(category: category.nom), 'data-ajax': false %></li>
-                    <% end %>
-              </ul>
+          </ul>
       </div>
 
     <ul data-role="listview">
@@ -40,12 +40,19 @@
   </div>
       <br />
 
+      <%= will_paginate @announces, renderer: BootstrapPagination::Rails %>
 
       <% if user_signed_in? %>
         <%= link_to 'Ajouter annonce', new_announce_path, class: 'ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-right', 'data-ajax': false %>
       <% end %>
 
+      <br />
+
+      <%= link_to 'Retour', announces_path %>
+
 </div>
+
+
 
 
 
